@@ -20,7 +20,6 @@ it('Should the two numbers be different', () => {
 
 it('Should return [0,1]', () => {
   const sum = twoSum(nums, target);
-  console.info('🚀 ~>  file: twoNum.test.ts:23 ~>  it ~>  sum', sum);
   assertEquals(sum, [0, 1]);
 });
 
@@ -28,7 +27,6 @@ it('Should return [1,2]', () => {
   const nums = [3, 2, 4],
     target = 6;
   const sum = twoSum(nums, target);
-  console.info('🚀 ~>  file: twoNum.test.ts:31 ~>  it ~>  sum', sum);
   assertEquals(sum, [1, 2]);
 });
 
