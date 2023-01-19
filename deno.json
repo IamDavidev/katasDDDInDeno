@@ -1,0 +1,5 @@
+{
+    "tasks": {
+        "run::tst": "deno test --watch __tests__"
+    }
+}
