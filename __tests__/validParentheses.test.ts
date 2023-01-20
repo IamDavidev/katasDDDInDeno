@@ -1,6 +1,7 @@
 import { it } from 'https://deno.land/std@0.173.0/testing/bdd.ts';
 import { assertEquals } from 'https://deno.land/std@0.173.0/testing/asserts.ts';
-import { isValid } from '../katas/%20validParentheses.ts';
+
+import { isValid } from '../katas/validParentheses.ts';
 
 const EXPECTED_FALSE = false;
 const EXPECTED_TRUE = true;
