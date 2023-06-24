@@ -1,7 +1,7 @@
 import { twoSum } from '../katas/twoNum.ts';
 
-import { it } from 'https://deno.land/std@0.173.0/testing/bdd.ts';
-import { assertEquals } from 'https://deno.land/std@0.173.0/testing/asserts.ts';
+import { it } from '@testing/bdd.ts';
+import { assertEquals } from '@testing/asserts.ts';
 
 const nums = [2, 7, 11, 15];
 const target = 9;
