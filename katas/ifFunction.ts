@@ -8,10 +8,10 @@
  *
  */
 
-type Bool = boolean;
-type Func = () => void;
+type Bool = boolean
+type Func = () => void
 
 export function _if(bool: Bool, f1: Func, f2: Func): void {
-  if (bool) return f1();
-  return f2();
+	if (bool) return f1()
+	return f2()
 }

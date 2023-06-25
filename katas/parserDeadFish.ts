@@ -10,33 +10,34 @@
  *
  */
 
-type output = number[] | [];
+type output = number[] | []
+
 /**
  *
  * @param data  string
  * @returns  number[] | []
  */
 export function parser(data: string): output {
-  if (data.length === 0) return [];
+	if (data.length === 0) return []
 
-  const output: number[] = [];
-  let initialValue = 0;
+	const output: number[] = []
+	let initialValue = 0
 
-  const actions = {
-    i: () => (initialValue += 1),
-    d: () => (initialValue -= 1),
-    s: () => (initialValue = initialValue ** 2),
-    o: () => output.push(initialValue),
-  };
+	const actions = {
+		i: () => (initialValue += 1),
+		d: () => (initialValue -= 1),
+		s: () => (initialValue = initialValue ** 2),
+		o: () => output.push(initialValue),
+	}
 
-  data.split('').forEach((action: string) => {
-    if (action !== 'i' && action !== 'd' && action !== 's' && action !== 'o')
-      return;
+	data.split('').forEach((action: string) => {
+		if (action !== 'i' && action !== 'd' && action !== 's' && action !== 'o')
+			return
 
-    actions[action]();
+		actions[action]()
 
-    return;
-  });
+		return
+	})
 
-  return output;
+	return output
 }

@@ -18,23 +18,19 @@
  */
 
 export function firstNonRepeatingLetter(str: string): string {
-  let letter = '';
-  // Your code here
-  const split = str.split('');
-  for (let i = 0; i < str.length; i++) {
-    const char = split[i];
-    const findCharLength = split.filter(
-      (c) => c.toLocaleLowerCase() === char.toLocaleLowerCase()
-    ).length;
-    console.info({
-      char,
-      findCharLength,
-    });
-    if (findCharLength === 1) {
-      letter = char;
-      break;
-    }
-  }
+	let letter = ''
+	// Your code here
+	const split = str.split('')
+	for (let i = 0; i < str.length; i++) {
+		const char = split[i]
+		const findCharLength = split.filter(
+			c => c.toLocaleLowerCase() === char.toLocaleLowerCase()
+		).length
+		if (findCharLength === 1) {
+			letter = char
+			break
+		}
+	}
 
-  return letter;
+	return letter
 }

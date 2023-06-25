@@ -6,5 +6,5 @@
  */
 
 export function isPalindrome(x: number): boolean {
-  return Number(x.toString().split('').reverse().join('')) === x;
+	return Number(x.toString().split('').reverse().join('')) === x
 }
