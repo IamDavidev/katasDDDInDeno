@@ -1,4 +1,4 @@
-export function rot13(str: string): String {
+export function rot13(str: string): string {
 	const map = new Map()
 	map.set('a', 'n')
 	map.set('b', 'o')
