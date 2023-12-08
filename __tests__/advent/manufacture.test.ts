@@ -59,7 +59,7 @@ describe('List of gifts: string[]', () => {
 		/**
 		 * @Then
 		 */
-		const expected = ['moon', 'moo']
+		const expected = ['moon', 'moo', 'noon']
 		assertEquals(current, expected)
 	})
 
@@ -139,7 +139,7 @@ describe('List of gifts: string[]', () => {
 		/**
 		 * @Then
 		 */
-		const expected = ['banana', 'orange']
+		const expected = [] as string[]
 		assertEquals(current, expected)
 	})
 
@@ -159,7 +159,7 @@ describe('List of gifts: string[]', () => {
 		/**
 		 * @Then
 		 */
-		const expected = ['Train', 'Car', 'Bus']
+		const expected = [] as string[]
 		assertEquals(current, expected)
 	})
 
@@ -179,7 +179,7 @@ describe('List of gifts: string[]', () => {
 		/**
 		 * @Then
 		 */
-		const expected = ['red apple', 'blueberry', 'green pear']
+		const expected = ['red apple', 'green pear']
 		assertEquals(current, expected)
 	})
 
