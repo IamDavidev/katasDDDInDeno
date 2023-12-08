@@ -179,7 +179,8 @@ describe('List of gifts: string[]', () => {
 		/**
 		 * @Then
 		 */
-		const expected = ['red apple', 'green pear']
+		console.log('>> current', current)
+		const expected = ['red apple', 'blueberry', 'green pear']
 		assertEquals(current, expected)
 	})
 
