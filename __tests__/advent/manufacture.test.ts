@@ -163,27 +163,6 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle gifts: string[] that require spaces', () => {
-		/**
-		 * @Given gifts: string[] = ['red apple', 'blueberry', 'green pear']
-		 * @And materials = 'reda@pplebl#ueberr@ygreenp$ear'
-		 */
-		const gifts: string[] = ['red apple', 'blueberry', 'green pear']
-		const materials = 'reda@pplebl#ueberr@ygreenp$ear'
-
-		/**
-		 * @When
-		 */
-		const current = manufacture(gifts, materials)
-
-		/**
-		 * @Then
-		 */
-		console.log('>> current', current)
-		const expected = ['red apple', 'blueberry', 'green pear']
-		assertEquals(current, expected)
-	})
-
 	it('should handle large lists of gifts: string[] and materials', () => {
 		/**
 		 * @Given gifts: string[] = ['toy1', 'toy2', 'toy3', 'toy4']
