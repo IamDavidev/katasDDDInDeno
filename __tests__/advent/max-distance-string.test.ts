@@ -4,7 +4,7 @@ import { maxDistanceStr } from '../../katas/advent/max-distance-string.ts'
 
 const runMaxDistanceTest = (movements: string, expected: number): void => {
     /**
-     * @Given
+     * @When
      */
     const maxDistance = maxDistanceStr(movements);
 
