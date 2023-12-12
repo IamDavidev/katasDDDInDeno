@@ -20,22 +20,31 @@ export function simulateSleighMovement(
 	road: string,
 	time: number
 ): Array<string> {
+
+	/**
+	 * Initial chars to simulate
+	 */
+	const chars = {
+		"road": ".",
+		"santa": "S",
+		"closedBarrier": "|",
+		"openBarrier": "*"
+	}
+
 	/**
 	 * The result is a set of roads
 	 */
-	const result: string[] = []
+	const snapshots: string[] = []
 	/**
 	 * Mantain the raw road
 	 */
 	let rawSplitRoad = road.split('')
 
-
-
 	/**
 	 * Open all barriers in the road
 	 */
 	const openAllBarriers = (): void => {
-		rawSplitRoad = rawSplitRoad.join('').replaceAll('|', '*').split('')
+		rawSplitRoad = road.replaceAll(chars.closedBarrier, chars.openBarrier).split('')
 	}
 
 	/**
@@ -43,34 +52,32 @@ export function simulateSleighMovement(
 	 * @param index  index of the road to push
 	 */
 	const pushNewStateRoad = (index: number): void => {
-		const santaChar = 'S'
-		const roadChar = '.'
 		const rawRoad = [...rawSplitRoad]
 
-		rawRoad[0] = roadChar
-		rawRoad[index] = santaChar
+		rawRoad[0] = chars.road
+		rawRoad[index] = chars.santa
 
-		result.push(rawRoad.join(''))
+		snapshots.push(rawRoad.join(''))
 	}
 
 	/**
 	 * Passed time
 	 */
-	let passedTime = 0
-	let index = 0  
-	while (passedTime < time) {
-		const step = rawSplitRoad[index]
+	let elapsedTime = 1
+	let iteration = 0 
+	while (elapsedTime <= time) {
+		const step = rawSplitRoad[iteration]
 
 		if (step === '|') {
-			pushNewStateRoad(index - 1)
+			pushNewStateRoad(iteration - 1)
 		} else {
-			pushNewStateRoad(index)
-			index++
+			pushNewStateRoad(iteration)
+			iteration++
 		}
 
-		if (passedTime === 4) openAllBarriers()
+		if (elapsedTime === 5) openAllBarriers()
 
-		passedTime++
+		elapsedTime++
 	}
-	return [...result]
+	return snapshots
 }
