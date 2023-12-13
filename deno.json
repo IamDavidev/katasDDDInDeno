@@ -1,6 +1,14 @@
 {
-  "tasks": {
-    "test": "deno test -A --allow-env --allow-net --config deno.json --unstable --import-map import_map.json  --trace-ops __tests__/*",
-    "test:watch": "deno test -A --allow-env --allow-net --watch --config deno.json --unstable --import-map import_map.json  --trace-ops __tests__/*"
-  }
+	"tasks": {
+		"test": "deno test -A --allow-env --allow-net --config deno.json --unstable --import-map import_map.json  --trace-ops __tests__/*",
+		"test:watch": "deno test -A --allow-env --allow-net --watch --config deno.json --unstable --import-map import_map.json  --trace-ops __tests__/*"
+	},
+	"fmt": {
+		"options": {
+			"semiColons": false,
+			"singleQuote": true,
+			"useTabs": false
+		}
+	},
+	"importMap": "./import_map.json"
 }
