@@ -23,7 +23,19 @@ Este repositorio contiene la resolución de diferentes katas utilizando la metod
 para ejecutar los tests de cada kata, se debe ejecutar el siguiente comando:
 
 ```bash
-deno task run::tst
+deno task tst
+```
+
+para ejecutar los tests de todas las katas y se actualicen automaticamente, se debe ejecutar el siguiente comando:
+
+```bash
+deno task tst:watch
+```
+
+para ejecutar los tests de una kata en especifico, se debe ejecutar el siguiente comando:
+
+```bash
+deno test -A --import-map import_map.json /path/to/kata.test.ts
 ```
 
 ## 📝 License
