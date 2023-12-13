@@ -1,10 +1,6 @@
 import { describe, it } from '@testing/bdd.ts'
 import { organizeGifts } from '../../katas/advent/organize-gifts.ts'
-import {
-	assertEquals,
-	assertInstanceOf,
-	assertNotEquals,
-} from '@testing/asserts.ts'
+import { assertEquals, assertNotEquals } from '@testing/asserts.ts'
 
 function checkOrganizeStrings(gifts: string, expected: string): void {
 	/**
@@ -80,8 +76,10 @@ describe('organize strings', () => {
 		/**
 		 * @Given
 		 */
-		const gifts = '10a10b10c10d10e10f10g10h10i10j10k10l10m10n10o10p10q10r10s10t10u10v10w10x10y10z'
-		const expected = '{a}{b}{c}{d}{e}{f}{g}{h}{i}{j}{k}{l}{m}{n}{o}{p}{q}{r}{s}{t}{u}{v}{w}{x}{y}{z}'
+		const gifts =
+			'10a10b10c10d10e10f10g10h10i10j10k10l10m10n10o10p10q10r10s10t10u10v10w10x10y10z'
+		const expected =
+			'{a}{b}{c}{d}{e}{f}{g}{h}{i}{j}{k}{l}{m}{n}{o}{p}{q}{r}{s}{t}{u}{v}{w}{x}{y}{z}'
 
 		/**
 		 * @Run
@@ -93,8 +91,10 @@ describe('organize strings', () => {
 		/**
 		 * @Given
 		 */
-		const gifts = '50a50b50c50d50e50f50g50h50i50j50k50l50m50n50o50p50q50r50s50t50u50v50w50x50y50z'
-		const expected = '[a][b][c][d][e][f][g][h][i][j][k][l][m][n][o][p][q][r][s][t][u][v][w][x][y][z]'
+		const gifts =
+			'50a50b50c50d50e50f50g50h50i50j50k50l50m50n50o50p50q50r50s50t50u50v50w50x50y50z'
+		const expected =
+			'[a][b][c][d][e][f][g][h][i][j][k][l][m][n][o][p][q][r][s][t][u][v][w][x][y][z]'
 
 		/**
 		 * @Run
@@ -106,52 +106,51 @@ describe('organize strings', () => {
 		/**
 		 * @Given
 		 */
-		const gifts = '76a11b';
-		const expected = '[a]{a}{a}(aaaaaa){b}(b)';
-	
+		const gifts = '76a11b'
+		const expected = '[a]{a}{a}(aaaaaa){b}(b)'
+
 		/**
 		 * @Run
 		 */
-		checkOrganizeStrings(gifts, expected);
-	});
-	
+		checkOrganizeStrings(gifts, expected)
+	})
+
 	it('should handle a case with a few letters and multiple brackets', () => {
 		/**
 		 * @Given
 		 */
-		const gifts = '20a';
-		const expected = '{a}{a}';
-	
+		const gifts = '20a'
+		const expected = '{a}{a}'
+
 		/**
 		 * @Run
 		 */
-		checkOrganizeStrings(gifts, expected);
-	});
-	
+		checkOrganizeStrings(gifts, expected)
+	})
+
 	it('should properly organize a mix of letters and brackets in the input', () => {
 		/**
 		 * @Given
 		 */
-		const gifts = '70b120a4c';
-		const expected = '[b]{b}{b}[a][a]{a}{a}(cccc)';
-	
+		const gifts = '70b120a4c'
+		const expected = '[b]{b}{b}[a][a]{a}{a}(cccc)'
+
 		/**
 		 * @Run
 		 */
-		checkOrganizeStrings(gifts, expected);
-	});
-	
+		checkOrganizeStrings(gifts, expected)
+	})
+
 	it('should handle a case with consecutive occurrences of letters and brackets', () => {
 		/**
 		 * @Given
 		 */
-		const gifts = '19d51e';
-		const expected = '{d}(ddddddddd)[e](e)';
-	
+		const gifts = '19d51e'
+		const expected = '{d}(ddddddddd)[e](e)'
+
 		/**
 		 * @Run
 		 */
-		checkOrganizeStrings(gifts, expected);
-	});
-	
+		checkOrganizeStrings(gifts, expected)
+	})
 })
