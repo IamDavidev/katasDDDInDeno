@@ -72,7 +72,8 @@ describe("Create Christmas Tree", () => {
         /**
          * @IamDavidev
          */
-
+        
+        checkTreeCreation(symbols, height, expectedTree)
     })
 
 })
