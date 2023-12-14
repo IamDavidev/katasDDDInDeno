@@ -44,4 +44,35 @@ describe("Create Christmas Tree", () => {
        checkTreeCreation(symbols, height, expectedTree)
     })
 
+    it("should return a bigger tree", () => {
+        /**
+         * @Given
+         */
+        const symbols = '*@o&*(&(%^('
+        const height = 16
+
+        const expectedTree = `               *
+              @ o
+             & * (
+            & ( % ^
+           ( * @ o &
+          * ( & ( % ^
+         ( * @ o & * (
+        & ( % ^ ( * @ o
+       & * ( & ( % ^ ( *
+      @ o & * ( & ( % ^ (
+     * @ o & * ( & ( % ^ (
+    * @ o & * ( & ( % ^ ( *
+   @ o & * ( & ( % ^ ( * @ o
+  & * ( & ( % ^ ( * @ o & * (
+ & ( % ^ ( * @ o & * ( & ( % ^
+( * @ o & * ( & ( % ^ ( * @ o &
+               |\n`
+
+        /**
+         * @IamDavidev
+         */
+
+    })
+
 })
