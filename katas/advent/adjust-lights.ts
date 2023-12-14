@@ -26,11 +26,10 @@ export function adjustLights(lights: Lights): number {
 		nextLight = changeLastLight()
 	}
 
-	console.log(changesNeeded)
-
-	const minChangesNeeded = Math.min(lights.length - changesNeeded, changesNeeded)
+	const minChangesNeeded = Math.min(
+		lights.length - changesNeeded,
+		changesNeeded
+	)
 
 	return minChangesNeeded
 }
-
-adjustLights(['🔴', '🔴', '🔴', '🔴'])

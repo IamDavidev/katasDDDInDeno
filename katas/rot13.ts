@@ -38,5 +38,3 @@ export function rot13(str: string): string {
 	return newWord
 }
 
-console.log(rot13('EBG13 rknzcyr.'))
-console.log(rot13('This is my first ROT13 excercise!'))

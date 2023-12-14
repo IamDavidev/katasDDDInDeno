@@ -35,18 +35,3 @@ export function nextBigger(n: number): number {
     return res > n ? res : -1;
     
 }
-
-//
-
-console.log(nextBigger(12))
-console.log(nextBigger(513))
-console.log(nextBigger(2017))
-console.log(nextBigger(414))
-console.log(nextBigger(144))
-console.log(nextBigger(1234567890))
-console.log(nextBigger(123456789))
-
-// result - 1
-
-console.log(nextBigger(9))
-console.log(nextBigger(111))

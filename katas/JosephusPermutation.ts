@@ -10,8 +10,3 @@ export const josephus = <T>(items: T[], k: number): T[] => {
 
 	return result
 }
-
-const items = ['1', '2', '3', '4', '5', '6', '7']
-const permutation = 3
-
-console.log(josephus(items, permutation))

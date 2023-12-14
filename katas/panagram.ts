@@ -4,7 +4,3 @@ export function isPanagram(phrase: string): boolean {
 	)
 	return exp.test(phrase)
 }
-
-console.log(isPanagram('The quick brown fox jumps over the lazy dog.'))
-console.log(isPanagram('any thing'))
-console.log(isPanagram('This is not panagram.'))
