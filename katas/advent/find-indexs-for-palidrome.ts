@@ -10,12 +10,22 @@
 export function findIndexsForPalindrome(
 	word: string
 ): [number, number] | [] | null {
-
+	/**
+	 * Determines if a string is a palindrome
+	 */
 	const isPalindrome = (str: string): boolean =>
 		str === str.split('').reverse().join('')
 
+	/**
+	 * If the word is a palindrome,
+	 * we do not need to change any letter
+	 */
 	if (isPalindrome(word)) return []
 
+	/**
+	 * Changes the position of two letters in a string
+	 *
+	 */
 	const swap = (
 		originaStr: string,
 		outerIndex: number,
@@ -30,20 +40,27 @@ export function findIndexsForPalindrome(
 		return str.join('')
 	}
 
+	/**
+	 * We iterate over the word and swap the position of two letters
+	 */
 	for (let outerIndex = 0; outerIndex < word.length; outerIndex++) {
 		for (let innerIndex = 0; innerIndex < word.length; innerIndex++) {
+			/**
+			 * We swap the position of two letters
+			 */
 			const newWord = swap(word, outerIndex, innerIndex)
+			/**
+			 * If the new word is a palindrome,
+			 * we return the indexs of the letters that we changed
+			 */
 			if (isPalindrome(newWord)) {
 				return [outerIndex, innerIndex]
 			}
 		}
 	}
 
+	/**
+	 * If it is not possible to make a palindrome,
+	 */
 	return null
 }
-
-const input = 'rotaratov'
-
-const result = findIndexsForPalindrome(input)
-
-console.log(result)
