@@ -14,7 +14,8 @@ export function photocopyDecayVerifier(
 	copy: string
 ): boolean {
 	if (original.length !== copy.length) return false
-	const isCopy = original.toLocaleLowerCase() === copy.toLocaleLowerCase()
+	const isCopy = original === copy || original.toLowerCase() === copy
+
 	if (isCopy) return true
 
 	const charsMayus = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -32,13 +33,18 @@ export function photocopyDecayVerifier(
 		}
 
 		if (charsSpecial.includes(original)) {
-			validCharsToDecay = charsSpecial.slice(charsSpecial.indexOf(original))
+			const maxIndex = charsSpecial.indexOf(original)
+			validCharsToDecay = charsSpecial.slice(maxIndex)
 		}
 		return validCharsToDecay.includes(copy)
 	}
 
 	for (let iterator = 0; iterator < original.length; iterator++) {
-		const isCopyChar = verifierIsCopy(original[iterator], copy[iterator])
+		const originalChar = original[iterator]
+		const copyChar = copy[iterator]
+
+		const isCopyChar = verifierIsCopy(originalChar, copyChar)
+
 		if (!isCopyChar) return false
 	}
 
