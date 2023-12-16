@@ -1,6 +1,5 @@
 import { assertEquals } from '@testing/asserts.ts'
 import { photocopyDecayVerifier } from '../../katas/advent/photocopy-decay.ts'
-import { describe, it } from '@testing/bdd.ts'
 
 function assertIsCopy(original: string, copy: string, expected: boolean) {
 	/**
@@ -14,13 +13,13 @@ function assertIsCopy(original: string, copy: string, expected: boolean) {
 	assertEquals(isCopy, expected)
 }
 
-// describe('Tests for Photocopy decay verifier kata', () => {
 type Original = string
 type Copy = string
 
-Deno.test(
-	'Should return true when the copy is the same as the original',
-	() => {
+Deno.test('Photocopy decay verifier', async t => {
+	const it = t.step
+
+	await it('Should return true when the copy is the same as the original', () => {
 		/**
 		 * @Given
 		 */
@@ -31,12 +30,9 @@ Deno.test(
 		 * @Then
 		 */
 		assertIsCopy(original, copy, true)
-	}
-)
+	})
 
-Deno.test(
-	"Should return false when the copy is not the same as the original because it's the same level of decay",
-	() => {
+	await it("Should return false when the copy is not the same as the original because it's the same level of decay", () => {
 		/**
 		 * @Given
 		 */
@@ -55,12 +51,9 @@ Deno.test(
 		for (const [original, copy] of cards) {
 			assertIsCopy(original, copy, expected)
 		}
-	}
-)
+	})
 
-Deno.test(
-	'Should return false when the copy has different length than the original',
-	() => {
+	await it('Should return false when the copy has different length than the original', () => {
 		/**
 		 * @Given
 		 */
@@ -73,28 +66,56 @@ Deno.test(
 		 * @Run
 		 */
 		assertIsCopy(original, copy, expected)
-	}
-)
+	})
 
-Deno.test('Should return true when the copy is only one level of decay', () => {
-	/**
-	 * @Given
-	 */
-	const cards = new Map<Original, Copy>([
-		['A', 'a'],
-		['Z', 'z'],
-		['a', '#'],
-		['z', '+'],
-		['a', ':'],
-		['z', '.'],
-		['A', ' '],
-	])
+	await it('Should return true when the copy is only one level of decay', () => {
+		/**
+		 * @Given
+		 */
+		const cards = new Map<Original, Copy>([
+			['A', 'a'],
+			['Z', 'z'],
+			['a', '#'],
+			['z', '+'],
+			['a', ':'],
+			['z', '.'],
+			['A', ' '],
+		])
 
-	/**
-	 * @Run
-	 */
+		/**
+		 * @Run
+		 */
 
-	for (const [original, copy] of cards) {
-		assertIsCopy(original, copy, true)
-	}
+		for (const [original, copy] of cards) {
+			assertIsCopy(original, copy, true)
+		}
+	})
+
+	await it('Should return true when the copy is correctly', () => {
+		/**
+		 * @Given
+		 */
+		const original = 'Santa Claus'
+		const copy = 's#+:. c:. s'
+		const expected = true
+
+		/**
+		 * @Run
+		 */
+		assertIsCopy(original, copy, expected)
+	})
+
+	await it('Should return false when there is a character that is not valid', () => {
+		/**
+		 * @Given
+		 */
+		const original = 'Santa Claus'
+		const copy = 's#+:.#c:. s'
+		const expected = false
+
+		/**
+		 * @Run
+		 */
+		assertIsCopy(original, copy, expected)
+	})
 })
