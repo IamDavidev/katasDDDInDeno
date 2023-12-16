@@ -13,14 +13,8 @@ export function photocopyDecayVerifier(
 	original: string,
 	copy: string
 ): boolean {
-	console.log({
-		original,
-		copy,
-	})
-
 	if (original.length !== copy.length) return false
-	const isCopy = original === copy || original.toLowerCase() === copy
-
+	const isCopy = original.toLocaleLowerCase() === copy.toLocaleLowerCase()
 	if (isCopy) return true
 
 	const charsMayus = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -40,9 +34,6 @@ export function photocopyDecayVerifier(
 		if (charsSpecial.includes(original)) {
 			validCharsToDecay = charsSpecial.slice(charsSpecial.indexOf(original))
 		}
-
-		console.log({ original, copy, validCharsToDecay })
-
 		return validCharsToDecay.includes(copy)
 	}
 
