@@ -1,9 +1,10 @@
 import { assertEquals } from '@testing/asserts.ts'
-import { describe, it } from '@testing/bdd.ts'
 import { manufacture } from '../../katas/advent/manufacture.ts'
 
-describe('List of gifts: string[]', () => {
-	it('should return an empty list when there are no gifts: string[]', () => {
+Deno.test('List of gifts: string[]', async t => {
+	const it = t.step
+
+	await it('should return an empty list when there are no gifts: string[]', () => {
 		/**
 		 * @Given gifts: string[] = []
 		 * @And materials = ''
@@ -23,7 +24,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should return all gifts: string[] when all materials are available', () => {
+	await it('should return all gifts: string[] when all materials are available', () => {
 		/**
 		 * @Given gifts: string[] = ['car', 'dog', 'cat']
 		 * @And materials = 'cdratog'
@@ -43,7 +44,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle gifts: string[] with repeated characters', () => {
+	await it('should handle gifts: string[] with repeated characters', () => {
 		/**
 		 * @Given gifts: string[] = ['moon', 'moo', 'noon']
 		 * @And materials = 'mon'
@@ -63,7 +64,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle gifts: string[] with special characters', () => {
+	await it('should handle gifts: string[] with special characters', () => {
 		/**
 		 * @Given gifts: string[] = ['gift@1', 'gift$2', 'gift#3']
 		 * @And materials = 'gift@12#3$'
@@ -83,7 +84,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle an empty list of materials', () => {
+	await it('should handle an empty list of materials', () => {
 		/**
 		 * @Given gifts: string[] = ['tren', 'oso', 'pelota']
 		 * @And materials = ''
@@ -103,7 +104,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle an empty list of gifts: string[]', () => {
+	await it('should handle an empty list of gifts: string[]', () => {
 		/**
 		 * @Given gifts: string[] = []
 		 * @And materials = 'abc'
@@ -123,7 +124,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle a mix of available and unavailable materials', () => {
+	await it('should handle a mix of available and unavailable materials', () => {
 		/**
 		 * @Given gifts: string[] = ['apple', 'banana', 'orange']
 		 * @And materials = 'anorg'
@@ -143,7 +144,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle uppercase and lowercase letters in materials', () => {
+	await it('should handle uppercase and lowercase letters in materials', () => {
 		/**
 		 * @Given gifts: string[] = ['Train', 'Car', 'Bus']
 		 * @And materials = 'TrAincArbUs'
@@ -163,7 +164,7 @@ describe('List of gifts: string[]', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should handle large lists of gifts: string[] and materials', () => {
+	await it('should handle large lists of gifts: string[] and materials', () => {
 		/**
 		 * @Given gifts: string[] = ['toy1', 'toy2', 'toy3', 'toy4']
 		 * @And materials = 'toy1toy2toy3toy4'

@@ -1,4 +1,3 @@
-import { describe, it } from '@testing/bdd.ts'
 import { simulateSleighMovement } from '../../katas/advent/simulate-sleigh-movement.ts'
 import { assertEquals, assertNotEquals } from '@testing/asserts.ts'
 
@@ -20,8 +19,10 @@ function runSleighMovementTest(
 	assertEquals(resultRoad, expectedRoad)
 }
 
-describe('Electronic Sleigh Movement', () => {
-	it('should return the same road when the time is 1', () => {
+Deno.test('Electronic Sleigh Movement', async t => {
+	const it = t.step
+
+	await it('should return the same road when the time is 1', () => {
 		/**
 		 * @Given
 		 */
@@ -39,7 +40,7 @@ describe('Electronic Sleigh Movement', () => {
 		assertEquals(resultRoad, [rawRoad])
 	})
 
-	it('should move the sled three position without barriers', () => {
+	await it('should move the sled three position without barriers', () => {
 		/**
 		 * @Given
 		 */
@@ -53,7 +54,7 @@ describe('Electronic Sleigh Movement', () => {
 		runSleighMovementTest(road, time, expectedRoad)
 	})
 
-	it('should open all closed barriers after 5 units of time', () => {
+	await it('should open all closed barriers after 5 units of time', () => {
 		/**
 		 * @Given
 		 */
@@ -74,7 +75,7 @@ describe('Electronic Sleigh Movement', () => {
 		runSleighMovementTest(road, time, expectedRoad)
 	})
 
-	it('case 1', () => {
+	await it('case 1', () => {
 		/**
 		 * @Given
 		 */
@@ -100,7 +101,7 @@ describe('Electronic Sleigh Movement', () => {
 		runSleighMovementTest(road, time, expectedRoad)
 	})
 
-	it('case 2', () => {
+	await it('case 2', () => {
 		/**
 		 * @Given
 		 */
@@ -121,6 +122,6 @@ describe('Electronic Sleigh Movement', () => {
 		/**
 		 * @Run
 		 */
-        runSleighMovementTest(road, time, expectedRoad)
+		runSleighMovementTest(road, time, expectedRoad)
 	})
 })

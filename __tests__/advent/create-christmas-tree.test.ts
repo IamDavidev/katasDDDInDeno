@@ -1,57 +1,56 @@
-import { describe, it } from '@testing/bdd.ts'
 import { createChristmasTree } from '../../katas/advent/create-christmas-tree.ts'
 import { assertEquals } from '@testing/asserts.ts'
 
-function checkTreeCreation(symbols: string, height: number,  expected: string) {
-    /**
-     * @When
-     */
-    const tree = createChristmasTree(symbols, height)
+function checkTreeCreation(symbols: string, height: number, expected: string) {
+	/**
+	 * @When
+	 */
+	const tree = createChristmasTree(symbols, height)
 
-    /**
-     * @Then
-     */
-    assertEquals(tree, expected)
+	/**
+	 * @Then
+	 */
+	assertEquals(tree, expected)
 }
 
-describe("Create Christmas Tree", () => {
+Deno.test('Create Christmas Tree', async t => {
+	const it = t.step
+	await it('should return a tree with height 1', () => {
+		/**
+		 * @Given
+		 */
+		const symbols = '*'
+		const height = 1
+		const expected = '*\n|\n'
 
-    it("should return a tree with height 1", () => {
-        /**
-         * @Given
-         */
-        const symbols = '*'
-        const height = 1
-        const expected = '*\n|\n'
+		/**
+		 * @Run
+		 */
+		checkTreeCreation(symbols, height, expected)
+	})
 
-        /**
-         * @Run
-         */
-        checkTreeCreation(symbols, height, expected)
-    })
+	await it('should return a tree with height 3', () => {
+		/**
+		 * @Given
+		 */
+		const symbols = '*'
+		const height = 3
+		const expectedTree = '  *\n * *\n* * *\n  |\n'
 
-    it("should return a tree with height 3", () =>{
-        /**
-         * @Given
-         */
-        const symbols = '*'
-        const height = 3
-        const expectedTree = '  *\n * *\n* * *\n  |\n'
+		/**
+		 * @Run
+		 */
+		checkTreeCreation(symbols, height, expectedTree)
+	})
 
-       /**
-        * @Run
-        */
-       checkTreeCreation(symbols, height, expectedTree)
-    })
+	await it('should return a bigger tree', () => {
+		/**
+		 * @Given
+		 */
+		const symbols = '*@o&*(&(%^('
+		const height = 16
 
-    it("should return a bigger tree", () => {
-        /**
-         * @Given
-         */
-        const symbols = '*@o&*(&(%^('
-        const height = 16
-
-        const expectedTree = `               *
+		const expectedTree = `               *
               @ o
              & * (
             & ( % ^
@@ -69,11 +68,10 @@ describe("Create Christmas Tree", () => {
 ( * @ o & * ( & ( % ^ ( * @ o &
                |\n`
 
-        /**
-         * @IamDavidev
-         */
-        
-        checkTreeCreation(symbols, height, expectedTree)
-    })
+		/**
+		 * @IamDavidev
+		 */
 
+		checkTreeCreation(symbols, height, expectedTree)
+	})
 })

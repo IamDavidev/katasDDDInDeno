@@ -1,62 +1,65 @@
-import { describe, it } from '@testing/bdd.ts'
 import { assertEquals } from '@testing/asserts.ts'
 
 import { validatePIN } from '../katas/validatePIN.ts'
 type IsValidate = boolean
 
-interface PinValidation {
-	[pin: string]: IsValidate
-}
+type PinValidation = Map<string, IsValidate>
 
-// const pinsWithValidate: PinValidation = {
-// 	'1': false,
-// 	'12': false,
-// 	'123': false,
-// 	'12345': false,
-// 	'1234567': false,
-// 	'-1234': false,
-// 	'1.2345': false,
-// 	'00000000': false,
-// 	'a.234': false,
-// 	'1234': true,
-// 	'0000': true,
-// 	'1111': true,
-// 	'123456': true,
-// 	'098765': true,
-// 	'000000': true,
-// }
+Deno.test('Validate PIN', async t => {
+	const it = t.step
 
-const wrongPins: PinValidation = {
-	'1': false,
-	'12': false,
-	'123': false,
-	'12345': false,
-	'1234567': false,
-	'-1234': false,
-	'1.2345': false,
-	'00000000': false,
-	'a.234': false,
-}
+	await t.step('should return true when the pin is correct', () => {
+		/**
+		 * @Given
+		 */
+		const correctPins: PinValidation = new Map([
+			['1234', true],
+			['0000', true],
+			['1111', true],
+			['123456', true],
+			['098765', true],
+			['000000', true],
+		])
 
-const correctPins: PinValidation = {
-	'1234': true,
-	'0000': true,
-	'1111': true,
-	'123456': true,
-	'098765': true,
-	'000000': true,
-}
+		correctPins.forEach((isValid, pin) => {
+			/**
+			 * @When
+			 */
+			const isValidPin = validatePIN(pin)
 
-describe('VALIDATE PIN', () => {
-	Object.entries(wrongPins).forEach(([pin, isValid]) => {
-		it(`should return ${isValid} when the pin is ${pin}`, () => {
-			assertEquals(validatePIN(pin), isValid)
+			/**
+			 * @Then
+			 */
+			assertEquals(isValidPin, isValid)
 		})
 	})
 
-	Object.entries(correctPins).forEach(([pin, isValid]) => {
-		it(`should return ${isValid} when the pin is ${pin}`, () => {
-			assertEquals(validatePIN(pin), isValid)
+	await it('should return false when the pin is wrong', () => {
+		/**
+		 * @Given
+		 */
+		const wrongPins: PinValidation = new Map([
+			['1', false],
+			['12', false],
+			['123', false],
+			['12345', false],
+			['1234567', false],
+			['-1234', false],
+			['1.,345', false],
+			['00000000', false],
+			['a.,34', false],
+		])
+
+		wrongPins.forEach((isValid, pin) => {
+			/**
+			 * @When
+			 */
+			const isValidPin = validatePIN(pin)
+
+			/**
+			 * @Then
+			 */
+			assertEquals(isValidPin, isValid)
 		})
 	})
 })

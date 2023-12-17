@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+
 import { findIndexsForPalindrome } from '../../katas/advent/find-indexs-for-palidrome.ts'
-import { describe, it } from '@testing/bdd.ts'
 
 function assertIndexForPalindrome(
 	input: string,
@@ -17,8 +17,9 @@ function assertIndexForPalindrome(
 	assertEquals(indexs, expected)
 }
 
-describe('Tests for Find indexs for palindrome kata', () => {
-	it('Should return [] when the words are already a palindrome', () => {
+Deno.test('Tests for Find indexs for palindrome kata', async t => {
+	const it = t.step
+	await it('Should return [] when the words are already a palindrome', () => {
 		/**
 		 * @Given
 		 */
@@ -53,7 +54,7 @@ describe('Tests for Find indexs for palindrome kata', () => {
 		}
 	})
 
-	it('Should return [0,1] when the word is "abab"', () => {
+	await it('Should return [0,1] when the word is "abab"', () => {
 		/**
 		 * @Given
 		 */
@@ -66,7 +67,7 @@ describe('Tests for Find indexs for palindrome kata', () => {
 		assertIndexForPalindrome(input, expected)
 	})
 
-	it('should return [1,3] when the word is aaababa', () => {
+	await it('should return [1,3] when the word is aaababa', () => {
 		/**
 		 * @Given
 		 */
@@ -76,7 +77,7 @@ describe('Tests for Find indexs for palindrome kata', () => {
 		assertIndexForPalindrome(input, expected)
 	})
 
-	it('should return [4,8] when the word is rotaratov', () => {
+	await it('should return [4,8] when the word is rotaratov', () => {
 		/**
 		 * @Given
 		 */
@@ -89,7 +90,7 @@ describe('Tests for Find indexs for palindrome kata', () => {
 		assertIndexForPalindrome(input, expected)
 	})
 
-	it('should return null when is not possible to make a palindrome', () => {
+	await it('should return null when is not possible to make a palindrome', () => {
 		/**
 		 * @Given
 		 */

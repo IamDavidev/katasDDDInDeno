@@ -1,10 +1,11 @@
-import { describe, it } from '@testing/bdd.ts'
 import { assertEquals } from '@testing/asserts.ts'
 
 import { longest } from '../katas/TwoToOneString.ts'
 
-describe('VALIDATE Two One String', () => {
-	it('should return abcdefklmopqwxy', () => {
+Deno.test('VALIDATE Two One String', async t => {
+	const it = t.step
+
+	await it('should return abcdefklmopqwxy', () => {
 		const a = 'xyaabbbccccdefww',
 			b = 'xxxxyyyyabklmopq'
 
@@ -13,7 +14,8 @@ describe('VALIDATE Two One String', () => {
 
 		assertEquals(current, expected)
 	})
-	it('should return abcdefghijklmnopqrstuvwxyz', () => {
+
+	await it('should return abcdefghijklmnopqrstuvwxyz', () => {
 		const a = 'abcdefghijklmnopqrstuvwxyz'
 		const expected = 'abcdefghijklmnopqrstuvwxyz'
 
@@ -22,7 +24,7 @@ describe('VALIDATE Two One String', () => {
 		assertEquals(current, expected)
 	})
 
-	it('should return abcd', () => {
+	await it('should return abcd', () => {
 		const a = 'abc'
 		const b = 'abcd'
 
