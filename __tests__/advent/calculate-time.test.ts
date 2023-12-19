@@ -24,7 +24,7 @@ Deno.test('calculateTime', async t => {
 		 * @Given
 		 */
 		const deliveries: Deliveries = []
-		const expectedTime = '07:00:00'
+		const expectedTime = '-07:00:00'
 
 		/**
 		 * @Run
@@ -42,7 +42,7 @@ Deno.test('calculateTime', async t => {
 			['00:00:00', '01:00:00'],
 			['00:00:00', '00:30:00', '00:30:00'],
 		]
-		const expectedTime = '06:00:00'
+		const expectedTime = '-06:00:00'
 
 		/**
 		 * @Run
