@@ -85,12 +85,3 @@ export function calculateTime(deliveries: Deliveries): string {
 	)
 	return restTimeStr
 }
-
-calculateTime(['01:01:01', '03:59:59', '01:01:01', '00:57:58'])
-// '-00:00:01'
-
-calculateTime(['00:10:00', '01:00:00', '03:30:00'])
-// '-02:20:00'
-
-calculateTime(['02:00:00', '05:00:00', '00:30:00'])
-// '00:30:00'
