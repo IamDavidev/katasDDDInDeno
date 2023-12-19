@@ -17,11 +17,11 @@ export function calculateTime(deliveries: Deliveries): string {
 		seconds: number,
 		isNegative: boolean
 	) => {
-		const str = isNegative ? '-' : ''
-		const fmtMinutes = minutes < 10 ? `0${minutes}` : minutes
-		const fmtSeconds = seconds < 10 ? `0${seconds}` : seconds
-		const fmtHours = hours < 10 ? `0${hours}` : hours
-		return str + fmtHours + ':' + fmtMinutes + ':' + fmtSeconds
+		const sign = isNegative ? '-' : ''
+		const fmtMinutes = String(minutes).padStart(2, '0')
+		const fmtSeconds = String(seconds).padStart(2, '0')
+		const fmtHours = String(hours).padStart(2, '0')
+		return sign + fmtHours + ':' + fmtMinutes + ':' + fmtSeconds
 	}
 
 	const restTime = (time: string) => {
@@ -71,17 +71,15 @@ export function calculateTime(deliveries: Deliveries): string {
 		totalHours += hours
 	}
 
-	if (totalSeconds >= timeLimit) {
-		totalMinutes += ~~(totalSeconds / timeLimit)
-		totalSeconds = totalSeconds % timeLimit
-	}
-	if (totalMinutes >= timeLimit) {
-		totalHours += ~~(totalMinutes / timeLimit)
-		totalMinutes = totalMinutes % timeLimit
-	}
+	totalMinutes += ~~(totalSeconds / timeLimit)
+	totalSeconds = totalSeconds % timeLimit
+
+	totalHours += ~~(totalMinutes / timeLimit)
+	totalMinutes = totalMinutes % timeLimit
 
 	const restTimeStr = restTime(
 		formatToStr(totalHours, totalMinutes, totalSeconds, false)
 	)
+	console.log(restTimeStr)
 	return restTimeStr
 }
