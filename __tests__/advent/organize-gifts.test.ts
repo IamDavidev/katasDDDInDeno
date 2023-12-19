@@ -1,6 +1,6 @@
-import { describe, it } from '@testing/bdd.ts'
-import { organizeGifts } from '../../katas/advent/organize-gifts.ts'
 import { assertEquals, assertNotEquals } from '@testing/asserts.ts'
+
+import { organizeGifts } from '../../katas/advent/organize-gifts.ts'
 
 function checkOrganizeStrings(gifts: string, expected: string): void {
 	/**
@@ -16,8 +16,10 @@ function checkOrganizeStrings(gifts: string, expected: string): void {
 	assertEquals(store, expected)
 }
 
-describe('organize strings', () => {
-	it('should return string', () => {
+Deno.test('organize strings', async t => {
+	const it = t.step
+
+	await it('should return string', () => {
 		/**
 		 * @Given
 		 */
@@ -32,7 +34,7 @@ describe('organize strings', () => {
 		assertEquals(typeof result, 'string')
 	})
 
-	it('should return 2 pallets when 100 gifts ', () => {
+	await it('should return 2 pallets when 100 gifts ', () => {
 		/**
 		 * @Given
 		 */
@@ -45,7 +47,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should return 4 boxes when 40 gifts ', () => {
+	await it('should return 4 boxes when 40 gifts ', () => {
 		/**
 		 * @Given
 		 */
@@ -58,7 +60,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should valid all letters of the alphabet with bag', () => {
+	await it('should valid all letters of the alphabet with bag', () => {
 		/**
 		 * @Given
 		 */
@@ -72,7 +74,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should valid all letters of the alphabet with box', () => {
+	await it('should valid all letters of the alphabet with box', () => {
 		/**
 		 * @Given
 		 */
@@ -87,7 +89,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should valid all letters of the alphabet with pallet', () => {
+	await it('should valid all letters of the alphabet with pallet', () => {
 		/**
 		 * @Given
 		 */
@@ -102,7 +104,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should organize gifts with multiple occurrences of letters and brackets', () => {
+	await it('should organize gifts with multiple occurrences of letters and brackets', () => {
 		/**
 		 * @Given
 		 */
@@ -115,7 +117,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should handle a case with a few letters and multiple brackets', () => {
+	await it('should handle a case with a few letters and multiple brackets', () => {
 		/**
 		 * @Given
 		 */
@@ -128,7 +130,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should properly organize a mix of letters and brackets in the input', () => {
+	await it('should properly organize a mix of letters and brackets in the input', () => {
 		/**
 		 * @Given
 		 */
@@ -141,7 +143,7 @@ describe('organize strings', () => {
 		checkOrganizeStrings(gifts, expected)
 	})
 
-	it('should handle a case with consecutive occurrences of letters and brackets', () => {
+	await it('should handle a case with consecutive occurrences of letters and brackets', () => {
 		/**
 		 * @Given
 		 */
