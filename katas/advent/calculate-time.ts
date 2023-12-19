@@ -11,24 +11,53 @@ export function calculateTime(deliveries: Deliveries): string {
 	const maxTime = '07:00:00'
 	const timeLimit = 60 // 60s -> 1m & 60m -> 1h
 
-	const formatToStr = (hours: number, minutes: number, seconds: number) => {
+	const formatToStr = (
+		hours: number,
+		minutes: number,
+		seconds: number,
+		isNegative: boolean
+	) => {
+		const str = isNegative ? '-' : ''
 		const fmtMinutes = minutes < 10 ? `0${minutes}` : minutes
 		const fmtSeconds = seconds < 10 ? `0${seconds}` : seconds
 		const fmtHours = hours < 10 ? `0${hours}` : hours
-		return `${fmtHours}:${fmtMinutes}:${fmtSeconds}`
+		return str + fmtHours + ':' + fmtMinutes + ':' + fmtSeconds
 	}
 
 	const restTime = (time: string) => {
+		let restHours = 0
+		let restMinutes = 0
+		let restSeconds = 0
+
 		const [hours, minutes, seconds] = maxTime.split(':').map(Number)
 		const [deliveryHours, deliveryMinutes, deliverySeconds] = time
 			.split(':')
 			.map(Number)
 
-		const restSeconds = seconds - deliverySeconds
-		const restMinutes = minutes - deliveryMinutes
-		const restHours = hours - deliveryHours
+		if (deliveryHours >= hours) {
+			restHours = deliveryHours - hours
+			restMinutes = deliveryMinutes
+			restSeconds = deliverySeconds
+			return formatToStr(restHours, restMinutes, restSeconds, false)
+		}
 
-		return formatToStr(restHours, restMinutes, restSeconds)
+		if (deliverySeconds > seconds) {
+			restMinutes = restMinutes - 1
+			restSeconds = timeLimit - deliverySeconds
+		} else {
+			restSeconds = seconds - deliverySeconds
+		}
+
+		if (deliveryMinutes > minutes) {
+			restHours = restHours - 1
+			restMinutes += timeLimit - deliveryMinutes
+		} else {
+			restMinutes = minutes - deliveryMinutes
+		}
+
+		restHours += hours - deliveryHours
+
+		return formatToStr(restHours, restMinutes, restSeconds, true)
 	}
 
 	let totalSeconds = 0
@@ -52,8 +81,16 @@ export function calculateTime(deliveries: Deliveries): string {
 	}
 
 	const restTimeStr = restTime(
-		formatToStr(totalHours, totalMinutes, totalSeconds)
+		formatToStr(totalHours, totalMinutes, totalSeconds, false)
 	)
-
 	return restTimeStr
 }
+
+calculateTime(['01:01:01', '03:59:59', '01:01:01', '00:57:58'])
+// '-00:00:01'
+
+calculateTime(['00:10:00', '01:00:00', '03:30:00'])
+// '-02:20:00'
+
+calculateTime(['02:00:00', '05:00:00', '00:30:00'])
+// '00:30:00'
