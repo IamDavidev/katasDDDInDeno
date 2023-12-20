@@ -65,7 +65,6 @@ export function calculateTime(deliveries: Deliveries): string {
 	let totalHours = 0
 	for (const delivery of deliveries) {
 		const [hours, minutes, seconds] = delivery.split(':').map(Number)
-
 		totalSeconds += seconds
 		totalMinutes += minutes
 		totalHours += hours
