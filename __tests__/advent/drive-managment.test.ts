@@ -135,7 +135,15 @@ Deno.test('Should return robot position one step up', () => {
 })
 
 Deno.test("Should return robot's position on the correct place", () => {
+  /**
+   * @Given
+   */
   const cases = [
+    /**
+     * Store
+     * Movements
+     * Expected Store
+     */
     [
       ['..!....', '......*'],
       ['R', 'D', 'L'],
@@ -157,4 +165,10 @@ Deno.test("Should return robot's position on the correct place", () => {
       ['.**.*.*.', '.***....', '.....!..'],
     ],
   ] as Array<[Store, Movements, Store]>
+  /**
+   *
+   */
+  for (const [store, movements, expectedStore] of cases) {
+    checkFinalStore(store, movements, expectedStore)
+  }
 })
