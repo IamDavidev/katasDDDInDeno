@@ -90,6 +90,13 @@ Deno.test('Get max gifts from array of houses', async (t): Promise<void> => {
     const cases = new Map<Houses, number>([
       [[1, 2, 3, 4, 5], 7],
       [[1, 2, 3, 1], 4],
+      [[1, 7, 9, 3, 2], 12],
     ])
+    /**
+     * @Run
+     */
+    for (const [houses, expected] of cases) {
+      checkMaxGifts(houses, expected)
+    }
   })
 })
