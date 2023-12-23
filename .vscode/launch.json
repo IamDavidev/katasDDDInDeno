@@ -8,7 +8,7 @@
             "request": "launch",
             "name": "Launch Program",
             "type": "node",
-            "program": "${workspaceFolder}/katas/NextBigger.ts",
+            "program": "${workspaceFolder}/katas/advent/optimize-intervals.ts",
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "/home/codespace/.deno/bin/deno",
             "runtimeArgs": [
