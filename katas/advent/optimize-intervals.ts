@@ -2,7 +2,7 @@
  * Interval :
  * [start, end]
  */
-export type Interval = [number, number] //
+export type Interval = [number, number] 
 
 /**
  * List of intervals :
@@ -89,38 +89,3 @@ export function optimizeIntervals(intervals: Intervals): Intervals {
 
   return optimized
 }
-
-// optimizeIntervals([
-//   [3, 4],
-//   [5, 8],
-//   [2, 7],
-// ])
-// // => [[2, 8]]
-
-// optimizeIntervals([
-//   [1, 3],
-//   [2, 6],
-//   [8, 10],
-// ])
-// // -> [[1, 6], [8, 10]]
-
-// optimizeIntervals([
-//   [1, 2],
-//   [3, 4],
-//   [5, 6],
-// ])
-// // -> [[1, 2], [3, 4], [5, 6]]
-
-// optimizeIntervals([
-//   [1, 5],
-//   [6, 10],
-//   [11, 15],
-//   [16, 20],
-// ])
-// // -> [[1, 5], [6, 10], [11, 15], [16, 20]]
-
-// optimizeIntervals([
-//   [5, 7],
-//   [6, 8],
-// ])
-// // -> [[5, 8]]
