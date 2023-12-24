@@ -1,4 +1,4 @@
-import { assert, assertEquals, assertInstanceOf } from '@testing/asserts.ts'
+import { assertEquals, assertInstanceOf } from '@testing/asserts.ts'
 import { Clock, Time, drawClock } from '../../katas/advent/draw-clock.ts'
 
 function assertClockDrawn(time: Time, expectedClock: Clock) {
