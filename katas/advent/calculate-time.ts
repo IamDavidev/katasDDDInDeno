@@ -79,6 +79,6 @@ export function calculateTime(deliveries: Deliveries): string {
 	const restTimeStr = restTime(
 		formatToStr(totalHours, totalMinutes, totalSeconds, false)
 	)
-	console.log(restTimeStr)
+
 	return restTimeStr
 }
