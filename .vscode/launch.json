@@ -8,7 +8,7 @@
             "request": "launch",
             "name": "Launch Program",
             "type": "node",
-            "program": "${workspaceFolder}/katas/advent/optimize-intervals.ts",
+            "program": "${workspaceFolder}/katas/advent/distribute-weights.ts",
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "/home/codespace/.deno/bin/deno",
             "runtimeArgs": [
