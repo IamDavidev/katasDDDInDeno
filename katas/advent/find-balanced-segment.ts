@@ -9,6 +9,17 @@ export type Message = Array<Segment>
  */
 export function findBalancedSegment(message: Message): [number, number] | [] {
   let longestSegment = [0, 0] as [number, number]
+
+  let maxZeros = 0
+  let maxOnes = 0
+
+  for (const segment of message) {
+    if (segment === 0) maxZeros++
+    else maxOnes++
+  }
+
+  const maxLength = Math.min(maxZeros, maxOnes)
+
   let zeros = 0
   let ones = 0
   let max = 0
@@ -29,6 +40,8 @@ export function findBalancedSegment(message: Message): [number, number] | [] {
       const innerSegment = message[innerIndex]
 
       actions[innerSegment]()
+
+      if (zeros > maxLength || ones > maxLength) break
 
       const isNewLongestSegment = zeros === ones && zeros > max
 
