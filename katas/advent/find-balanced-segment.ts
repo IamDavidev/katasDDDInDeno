@@ -54,32 +54,3 @@ export function findBalancedSegment(message: Message): [number, number] | [] {
   if (longestSegment[0] === 0 && longestSegment[1] === 0) return []
   return longestSegment
 }
-
-console.log(findBalancedSegment([1, 1, 0, 1, 1, 0, 1, 1]))
-//                         |________|
-// posición del segmento:    [2, 5]
-// más largo equilibrado
-// de 0s y 1s
-
-console.log(findBalancedSegment([1, 1, 0]))
-//                      |__|
-//                     [1, 2]
-
-console.log(findBalancedSegment([1, 1, 1]))
-// no hay segmentos equilibrados: []
-
-console.log(findBalancedSegment([0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1]))
-/*
-
-Test: 
-
-Expected:
-[
-  5,
-  10
-]
-
-Actual:
-[]
-
-*/
