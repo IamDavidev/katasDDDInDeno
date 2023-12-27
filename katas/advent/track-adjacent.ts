@@ -16,68 +16,39 @@ export type Cell = Array<Symbol>
  */
 export type Grid = Array<Cell>
 
-export function trackAdjacentSymbols(grid: Grid): Grid {
-  console.table(grid)
-
+export function trackAdjacentSymbols(store: Grid): Grid {
   const countAdjacentTracks = (
     grid: Grid,
     row: number,
     col: number
   ): number => {
-    let count = 0
-
-    // check row above
-    if (grid[row - 1]) {
-      if (grid[row - 1][col - 1] === '*') {
-        count++
-      }
-      if (grid[row - 1][col] === '*') {
-        count++
-      }
-      if (grid[row - 1][col + 1] === '*') {
-        count++
-      }
-    }
-
-    // check row below
-    if (grid[row + 1]) {
-      if (grid[row + 1][col - 1] === '*') {
-        count++
-      }
-      if (grid[row + 1][col] === '*') {
-        count++
-      }
-      if (grid[row + 1][col + 1] === '*') {
-        count++
-      }
-    }
-
-    // check lateral
-    if (grid[row][col - 1] === '*') {
-      count++
-    }
-    if (grid[row][col + 1] === '*') {
-      count++
-    }
-    return count
+    return [
+      grid[row - 1]?.[col - 1],
+      grid[row - 1]?.[col],
+      grid[row - 1]?.[col + 1],
+      grid[row][col - 1],
+      grid[row][col + 1],
+      grid[row + 1]?.[col - 1],
+      grid[row + 1]?.[col],
+      grid[row + 1]?.[col + 1],
+    ].filter(cell => cell === '*').length
   }
 
-  for (let colIndex = 0; colIndex < grid.length; colIndex++) {
-    for (let rowIndex = 0; rowIndex < grid[colIndex].length; rowIndex++) {
-      const cell = grid[colIndex][rowIndex]
-      if (cell === '*') {
-        continue
-      }
+  for (let colIndex = 0; colIndex < store.length; colIndex++) {
+    for (let rowIndex = 0; rowIndex < store[colIndex].length; rowIndex++) {
+      const cell = store[colIndex][rowIndex]
+      if (cell === '*') continue
 
-      const adjacentTracks = countAdjacentTracks(grid, colIndex, rowIndex)
+      const adjacentTracks = countAdjacentTracks(store, colIndex, rowIndex)
+
       if (adjacentTracks === 0) {
-        grid[colIndex][rowIndex] = ' '
+        store[colIndex][rowIndex] = ' '
         continue
       }
 
-      grid[colIndex][rowIndex] = String(adjacentTracks)
+      store[colIndex][rowIndex] = String(adjacentTracks)
     }
   }
 
-  return grid
+  return store
 }
