@@ -82,6 +82,11 @@ Deno.test('Compiler Instruction', async t => {
      */
     const code = '+%+<'
     const output = 3
+
+    /**
+     * @Assert
+     */
+    assertCompile(code, output)
   })
 
   await it('¿ init a conditional block if counter is greater than 0', () => {
