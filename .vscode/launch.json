@@ -1,24 +1,24 @@
 {
-    // Use IntelliSense para saber los atributos posibles.
-    // Mantenga el puntero para ver las descripciones de los existentes atributos.
-    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "request": "launch",
-            "name": "Launch Program",
-            "type": "node",
-            "program": "${workspaceFolder}/katas/advent/find-balanced-segment.ts",
-            "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "/home/codespace/.deno/bin/deno",
-            "runtimeArgs": [
-                "run",
-                "--import-map",
-                "./import_map.json",
-                "--inspect-wait",
-                "--allow-all"
-            ],
-            "attachSimplePort": 9229
-        }
-    ]
+  // Use IntelliSense para saber los atributos posibles.
+  // Mantenga el puntero para ver las descripciones de los existentes atributos.
+  // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "request": "launch",
+      "name": "Launch Program",
+      "type": "node",
+      "program": "${workspaceFolder}/katas/advent/compiler.ts",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "/home/codespace/.deno/bin/deno",
+      "runtimeArgs": [
+        "run",
+        "--import-map",
+        "./import_map.json",
+        "--inspect-wait",
+        "--allow-all"
+      ],
+      "attachSimplePort": 9229
+    }
+  ]
 }
