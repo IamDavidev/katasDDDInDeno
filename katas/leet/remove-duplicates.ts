@@ -1,5 +1,11 @@
 type Nums = Array<number | string>
 
+/**
+ *
+ * Function to remove duplicates from an array of numbers
+ * @param nums  Array of numbers
+ * @returns   Count of unique values
+ */
 export function removeDuplicates(nums: Nums): number {
   const char = '_'
 
