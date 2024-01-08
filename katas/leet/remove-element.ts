@@ -10,8 +10,8 @@ type Value = number
 export function removeElement(nums: Nums, val: Value): number {
   const char = '_'
 
-  const values = []
-  const chars = []
+  const values = [] as Nums
+  const chars = [] as Nums
 
   let index = 0
   for (const num of nums) {
