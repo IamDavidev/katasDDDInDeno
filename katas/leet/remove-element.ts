@@ -10,24 +10,27 @@ type Value = number
 export function removeElement(nums: Nums, val: Value): number {
   const char = '_'
 
-  //   const values = []
-  //   const chars = []
+  const values = []
+  const chars = []
 
-  let count = 0
+  let index = 0
   for (const num of nums) {
-    if (num !== val) {
-      nums[count] = char
-      count++
+    if (num === val) {
+      values.push(char)
+    } else {
+      chars.push(num)
     }
+
+    index++
   }
 
-  //   let outer = 0
-  //   for (const char of values.concat(chars)) {
-  //     nums[outer] = char
-  //     outer++
-  //   }
+  let iterator = 0
+  for (const char of values.concat(chars)) {
+    nums[iterator] = char
+    iterator++
+  }
 
-  return count
+  return index
 }
 
 const nums = [3, 2, 2, 3]
