@@ -14,7 +14,3 @@ export function findSubstringIndex(haystack: string, needle: string): number {
 
   return -1
 }
-
-const str = 'sedbutsad'
-const needle = 'sad'
-console.log(findSubstringIndex(str, needle))
