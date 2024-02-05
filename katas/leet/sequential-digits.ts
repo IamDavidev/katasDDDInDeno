@@ -12,8 +12,5 @@ export function sequentialDigits(low: number, high: number): number[] {
     }
   }
 
-  console.log('Result', result)
   return result
 }
-
-sequentialDigits(100, 300)
