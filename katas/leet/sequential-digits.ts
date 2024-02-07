@@ -1,5 +1,5 @@
 export function sequentialDigits(low: number, high: number): number[] {
-  let result: number[] = []
+  const result: number[] = []
   const startDigits = '123456789'
 
   for (let length = 2; length <= 9; length++) {
