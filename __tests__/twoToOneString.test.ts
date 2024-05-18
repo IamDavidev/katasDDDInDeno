@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { longest } from '../katas/code/TwoToOneString.ts'
 
-import { longest } from '../katas/TwoToOneString.ts'
 
 Deno.test('VALIDATE Two One String', async t => {
 	const it = t.step

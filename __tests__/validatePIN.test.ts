@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { validatePIN } from '../katas/code/validatePIN.ts'
 
-import { validatePIN } from '../katas/validatePIN.ts'
 type IsValidate = boolean
 
 type PinValidation = Map<string, IsValidate>

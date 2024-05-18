@@ -1,5 +1,5 @@
-import { twoSum } from '../katas/twoNum.ts'
 import { assertEquals } from '@testing/asserts.ts'
+import { twoSum } from '../katas/code/twoNum.ts'
 
 const nums = [2, 7, 11, 15]
 const target = 9

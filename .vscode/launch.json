@@ -8,7 +8,7 @@
       "request": "launch",
       "name": "Launch Program",
       "type": "node",
-      "program": "${workspaceFolder}/katas/advent/compiler.ts",
+      "program": "${workspaceFolder}/katas/leet/is-happy-number.ts",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "/home/codespace/.deno/bin/deno",
       "runtimeArgs": [

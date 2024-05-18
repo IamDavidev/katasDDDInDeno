@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { parser } from '../katas/code/parserDeadFish.ts'
 
-import { parser } from '../katas/parserDeadFish.ts'
 
 Deno.test('parser deadfish', async t => {
 	const it = t.step

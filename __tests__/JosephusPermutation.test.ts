@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { josephus } from '../katas/code/JosephusPermutation.ts'
 
-import { josephus } from '../katas/JosephusPermutation.ts'
 
 Deno.test('Josephus Permutation', async t => {
 	const it = t.step

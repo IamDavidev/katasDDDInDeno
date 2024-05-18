@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { whoLikesIt } from '../katas/code/whoLikesIt.ts'
 
-import { whoLikesIt } from '../katas/whoLikesIt.ts'
 
 Deno.test('Who likes it?', async t => {
 	const it = t.step

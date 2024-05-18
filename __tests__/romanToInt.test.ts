@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { romanToInt } from '../katas/code/romanToInt.ts'
 
-import { romanToInt } from '../katas/romanToInt.ts'
 
 Deno.test('Roman To Int', async t => {
 	const it = t.step

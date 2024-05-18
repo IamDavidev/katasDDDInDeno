@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { longestCommonPrefix } from '../katas/code/longestCommonPrefix.ts'
 
-import { longestCommonPrefix } from '../katas/longestCommonPrefix.ts'
 
 Deno.test('Longest Common Prefix', async t => {
 	const it = t.step

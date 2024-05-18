@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { firstNonRepeatingLetter } from '../katas/code/firstNonRepeatingLetter.ts'
 
-import { firstNonRepeatingLetter } from '../katas/firstNonRepeatingLetter.ts'
 
 const EXPECTED_EMPTY_STRING = ''
 

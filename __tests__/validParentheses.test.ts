@@ -1,6 +1,6 @@
 import { assertEquals } from '@testing/asserts.ts'
+import { isValid } from '../katas/code/validParentheses.ts'
 
-import { isValid } from '../katas/validParentheses.ts'
 
 const EXPECTED_FALSE = false
 const EXPECTED_TRUE = true

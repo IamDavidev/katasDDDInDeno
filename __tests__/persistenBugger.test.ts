@@ -1,5 +1,5 @@
 import { assertEquals } from '@testing/asserts.ts'
-import { persistentBugger } from '../katas/persistentBugger.ts'
+import { persistentBugger } from '../katas/code/persistentBugger.ts'
 
 Deno.test('Persistent Bugger', async t => {
 	const it = t.step
