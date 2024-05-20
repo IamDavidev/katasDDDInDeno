@@ -18,10 +18,9 @@ Deno.test(
       assertEquals(expectedElements, mkaverage.streamElements)
     })
 
-    await it('Should return -1 with less that M elements', () => {
+    await it('Should return -1 with less than M elements', () => {
       // Given
       const expected = -1
-
       const m = 3
       const k = 1
       const mkaverage = new MKAverage(m, k)
@@ -34,6 +33,112 @@ Deno.test(
 
       // then
       assertEquals(expected, average)
+    })
+
+    await it('Should return correct MKAverage with exactly M elements', () => {
+      // Given
+      const expected = 3
+      const m = 3
+      const k = 1
+      const mkaverage = new MKAverage(m, k)
+      const elementsToAdd = [3, 1, 10]
+
+      // When
+      elementsToAdd.forEach(n => mkaverage.addElement(n))
+
+      const average = mkaverage.calculateMKAverage()
+
+      // then
+      assertEquals(expected, average)
+    })
+
+    await it('Should return correct MKAverage with more than M elements', () => {
+      // Given
+      const expected = 5
+      const m = 3
+      const k = 1
+      const mkaverage = new MKAverage(m, k)
+      const elementsToAdd = [3, 1, 10, 5, 5, 5]
+
+      // When
+      elementsToAdd.forEach(n => mkaverage.addElement(n))
+
+      const average = mkaverage.calculateMKAverage()
+
+      // then
+      assertEquals(expected, average)
+    })
+
+    await it('Should return correct MKAverage with different values', () => {
+      // Given
+      const expected = 5
+      const m = 5
+      const k = 1
+      const mkaverage = new MKAverage(m, k)
+      const elementsToAdd = [1, 2, 3, 4, 5, 6, 7]
+
+      // When
+      elementsToAdd.forEach(n => mkaverage.addElement(n))
+
+      const average = mkaverage.calculateMKAverage()
+
+      // then
+      assertEquals(expected, average)
+    })
+
+    await it('Should return same value when all elements are the same', () => {
+      // Given
+      const expected = 5
+      const m = 3
+      const k = 1
+      const mkaverage = new MKAverage(m, k)
+      const elementsToAdd = [5, 5, 5]
+
+      // When
+      elementsToAdd.forEach(n => mkaverage.addElement(n))
+
+      const average = mkaverage.calculateMKAverage()
+
+      // then
+      assertEquals(expected, average)
+    })
+
+    await it('Should handle varying stream length correctly', () => {
+      // Given
+      const m = 4
+      const k = 1
+      const mkaverage = new MKAverage(m, k)
+
+      // When
+      mkaverage.addElement(10)
+      mkaverage.addElement(20)
+      mkaverage.addElement(30)
+      mkaverage.addElement(40)
+      let average = mkaverage.calculateMKAverage()
+      assertEquals(25, average) // The last 4 elements are [10, 20, 30, 40], average of [20, 30] is 25
+
+      mkaverage.addElement(50)
+      average = mkaverage.calculateMKAverage()
+      assertEquals(35, average) // The last 4 elements are [20, 30, 40, 50], average of [30, 40] is 35
+    })
+
+    await it('Should handle multiple calculations correctly', () => {
+      // Given
+      const m = 3
+      const k = 1
+      const mkaverage = new MKAverage(m, k)
+
+      // When
+      mkaverage.addElement(3)
+      mkaverage.addElement(1)
+      mkaverage.addElement(10)
+      let average = mkaverage.calculateMKAverage()
+      assertEquals(3, average) // After removing 1 smallest (1) and 1 largest (10), average of [3] is 3
+
+      mkaverage.addElement(5)
+      mkaverage.addElement(6)
+      average = mkaverage.calculateMKAverage()
+      assertEquals(5, average) // The last 3 elements are [10, 5, 6], average of [5, 6] is 5
     })
   }
 )
