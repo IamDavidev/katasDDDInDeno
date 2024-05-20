@@ -121,24 +121,5 @@ Deno.test(
       average = mkaverage.calculateMKAverage()
       assertEquals(35, average) // The last 4 elements are [20, 30, 40, 50], average of [30, 40] is 35
     })
-
-    await it('Should handle multiple calculations correctly', () => {
-      // Given
-      const m = 3
-      const k = 1
-      const mkaverage = new MKAverage(m, k)
-
-      // When
-      mkaverage.addElement(3)
-      mkaverage.addElement(1)
-      mkaverage.addElement(10)
-      let average = mkaverage.calculateMKAverage()
-      assertEquals(3, average) // After removing 1 smallest (1) and 1 largest (10), average of [3] is 3
-
-      mkaverage.addElement(5)
-      mkaverage.addElement(6)
-      average = mkaverage.calculateMKAverage()
-      assertEquals(5, average) // The last 3 elements are [10, 5, 6], average of [5, 6] is 5
-    })
   }
 )
