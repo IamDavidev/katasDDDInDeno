@@ -1,4 +1,4 @@
-function threeSumClosest(nums: number[], target: number): number {
+export function threeSumClosest(nums: number[], target: number): number {
   nums.sort((a, b) => a - b)
   let closestSum = nums[0] + nums[1] + nums[2]
 
