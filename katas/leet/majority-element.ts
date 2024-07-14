@@ -5,24 +5,20 @@ export function majorityElement(nums: number[]): number {
   const mapNums = new Map<number, number>()
 
   for (const num of nums) {
-    if (mapNums.has(num)) {
-      const currentValue = mapNums.get(num) ?? 0
-      mapNums.set(num, currentValue + 1)
-    } else {
-      mapNums.set(num, 1)
-    }
+    mapNums.set(num, (mapNums.get(num) ?? 0) + 1)
   }
 
-  console.table(mapNums)
-  let max = [0, 0]
+  let majorityElement = nums[0]
+  let maxAppears = 0
 
   for (const [num, appears] of mapNums) {
-    if (appears > max[1]) {
-      max = [num, appears]
+    if (appears > maxAppears) {
+      maxAppears = appears
+      majorityElement = num
     }
   }
 
-  return max[0]
+  return majorityElement
 }
 
 console.log(
