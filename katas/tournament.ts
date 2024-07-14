@@ -53,17 +53,17 @@ const kv = [
   ['Z', 'A'],
 ]
 
-const sucecionWords = new Map(kv.map(([key, value]) => [key, value]))
+const letterMapping = new Map(kv.map(([key, value]) => [key, value]))
 
-function desencriptMessage(message: string): string {
-  function transformWord(word: string): string {
-    return word
+function decryptMessage(message: string): string {
+  function shiftLetter(letter: string): string {
+    return letter
       .split('')
-      .map(letter => sucecionWords.get(letter) ?? letter)
+      .map(character => letterMapping.get(character) ?? character)
       .join('')
   }
 
-  return message.split(' ').map(transformWord).join(' ')
+  return message.split(' ').map(shiftLetter).join(' ')
 }
 
-console.log('Unique example', desencriptMessage('ItMhNq dK pTd kdd ###'))
+console.log('Unique example', decryptMessage('ItMhNq dK pTd kdd ###'))
