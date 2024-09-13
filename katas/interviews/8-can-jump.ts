@@ -4,10 +4,11 @@ export function canJump(nums: number[]): boolean {
 
   let steps = nums[INITIAL_INDEX]
 
-  for(let index = 0; index < nums.length; index+= steps){
-    steps
-    console.log(nums[index])
+  for (let index = 0; index < nums.length; index += steps) {
+    steps = nums[index]
   }
+
+  if (steps >= nums.length) return true
 
   return false
 }
